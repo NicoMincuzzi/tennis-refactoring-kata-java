@@ -58,12 +58,9 @@ public class TennisGame {
         }
 
         for (int i = 1; i < 3; i++) {
-            if (i == 1)
-                tempScore = m_score1;
-            else {
-                score += "-";
-                tempScore = m_score2;
-            }
+            if (i != 1)
+                score = score.concat("-");
+            tempScore = (i == 1) ? m_score1 : m_score2;
             score = score.concat(scoreMap_2.get(tempScore));
         }
         return score;
