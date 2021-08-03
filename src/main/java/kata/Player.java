@@ -1,7 +1,5 @@
 package kata;
 
-import static kata.Score.gameScoreMap;
-
 public class Player {
     private final String name;
     private final Score score;
@@ -15,24 +13,28 @@ public class Player {
         score.addScore();
     }
 
-    public int currentScore() {
-        return score.getScore();
+    public String currentScore(Player opponent) {
+        return score.scoreResult(opponent.score);
     }
 
-    public String tieScore() {
-        return gameScoreMap.get(currentScore()).concat("-All");
+    public boolean isTieScore(Player player) {
+        return this.score.equals(player.score);
+    }
+
+    public String tieScore(Player player) {
+        return score.tieScore(player.score);
     }
 
     public boolean isDeuce(Player opponent) {
-        return currentScore() >= 3 && score.equals(opponent.score);
+        return score.isDeuce(score, opponent.score);
     }
 
     public boolean hasAdvantage(Player opponent) {
-        return currentScore() >= 4 && currentScore() - opponent.currentScore() == 1;
+        return score.hasAdvantage(opponent.score);
     }
 
     public boolean hasWonAgainst(Player opponent) {
-        return currentScore() >= 4 && currentScore() - opponent.currentScore() >= 2;
+        return score.hasWonAgainst(opponent.score);
     }
 
     public String advantageMessage() {

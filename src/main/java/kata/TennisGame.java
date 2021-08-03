@@ -1,7 +1,5 @@
 package kata;
 
-import static kata.Score.gameScoreMap;
-
 public class TennisGame {
     private final Player player1;
     private final Player player2;
@@ -22,8 +20,10 @@ public class TennisGame {
     public String getScore() {
         if (player1.isDeuce(player2))
             return "Deuce";
-        if (player1.currentScore() == player2.currentScore())
-            return player1.tieScore();
+
+        if (player1.isTieScore(player2)) {
+            return player1.tieScore(player2);
+        }
 
         if (player1.hasAdvantage(player2))
             return player1.advantageMessage();
@@ -35,6 +35,6 @@ public class TennisGame {
         if (player2.hasWonAgainst(player1))
             return player2.winMessage();
 
-        return gameScoreMap.get(player1.currentScore()).concat("-").concat(gameScoreMap.get(player2.currentScore()));
+        return player1.currentScore(player2);
     }
 }
