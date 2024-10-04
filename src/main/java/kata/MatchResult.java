@@ -16,6 +16,6 @@ public class MatchResult implements Result {
 
     @Override
     public String execute(Score score1, Score score2) {
-        return score1.format().concat("-").concat(score2.format());
+        return score1.result(score2, new MatchResultFormatter());
     }
 }

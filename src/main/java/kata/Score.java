@@ -22,28 +22,35 @@ public class Score {
         return value >= 4;
     }
 
-    public String format() {
+    public String formatToString() {
         if (value == 0) {
             return "Love";
-        } else if (value == 1) {
+        }
+        if (value == 1) {
             return "Fifteen";
-        } else if (value == 2) {
+        }
+        if (value == 2) {
             return "Thirty";
-        } else if (value == 3) {
+        }
+        if (value == 3) {
             return "Forty";
         }
         return "";
     }
 
     public boolean isAdvantageThan(Score score) {
-        return minResult(score) == 1;
+        return diffThan(score) == 1;
     }
 
     public boolean hasWinThan(Score score) {
-        return minResult(score) >= 2;
+        return diffThan(score) >= 2;
     }
 
-    public int minResult(Score other) {
+    public String result(Score other, Formatter formatter) {
+        return formatter.format(formatToString(), other.formatToString());
+    }
+
+    private int diffThan(Score other) {
         return value - other.getValue();
     }
 
