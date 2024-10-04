@@ -22,10 +22,6 @@ public class Score {
         return value >= 4;
     }
 
-    public int minResult(Score other) {
-        return value - other.getValue();
-    }
-
     public String format() {
         if (value == 0) {
             return "Love";
@@ -37,6 +33,18 @@ public class Score {
             return "Forty";
         }
         return "";
+    }
+
+    public boolean isAdvantageThan(Score score) {
+        return minResult(score) == 1;
+    }
+
+    public boolean hasWinThan(Score score) {
+        return minResult(score) >= 2;
+    }
+
+    public int minResult(Score other) {
+        return value - other.getValue();
     }
 
     @Override

@@ -16,14 +16,18 @@ public class AdvantageResult implements Result {
 
     @Override
     public String execute(Score score1, Score score2) {
-        String score;
-        int minusResult = score1.minResult(score2);
+        if (score1.isAdvantageThan(score2)) {
+            return player1.advantage(new AdvantageFormatter());
+        }
 
-        if (minusResult == 1) score = "Advantage player1";
-        else if (minusResult == -1) score = "Advantage player2";
-        else if (minusResult >= 2) score = "Win for player1";
-        else score = "Win for player2";
+        if (score2.isAdvantageThan(score1)) {
+            return player2.advantage(new AdvantageFormatter());
+        }
 
-        return score;
+        if (score1.hasWinThan(score2)) {
+            return player1.win(new WinFormatter());
+        }
+
+        return player2.win(new WinFormatter());
     }
 }

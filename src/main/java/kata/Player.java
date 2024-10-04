@@ -27,6 +27,14 @@ public class Player {
         return score.equals(player2.getScore());
     }
 
+    public String advantage(Formatter formatter) {
+        return formatter.format(name);
+    }
+
+    public String win(Formatter formatter) {
+        return formatter.format(name);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
