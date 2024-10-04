@@ -9,11 +9,13 @@ public class TennisGame {
     private final Player player1;
     private final Player player2;
     private final List<Result> results;
+    private final MatchResult matchResult;
 
     public TennisGame(String player1Name, String player2Name) {
         this.player1 = new Player(player1Name, new Score(0));
         this.player2 = new Player(player2Name, new Score(0));
-        this.results = asList(new TieResult(this.player1, this.player2), new AdvantageResult(this.player1, this.player2), new MatchResult(this.player1, this.player2));
+        this.matchResult = new MatchResult(this.player1, this.player2);
+        this.results = asList(new TieResult(this.player1, this.player2), new AdvantageResult(this.player1, this.player2));
     }
 
     public void wonPoint(String playerName) {
@@ -27,7 +29,7 @@ public class TennisGame {
         return results.stream()
                 .filter(Result::canApply)
                 .findFirst()
-                .map(it -> it.execute(player1.getScore(), player2.getScore()))
-                .get();
+                .map(Result::execute)
+                .orElseGet(matchResult::execute);
     }
 }

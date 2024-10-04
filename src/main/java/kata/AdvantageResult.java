@@ -15,7 +15,9 @@ public class AdvantageResult implements Result {
     }
 
     @Override
-    public String execute(Score score1, Score score2) {
+    public String execute() {
+        Score score1 = player1.getScore();
+        Score score2 = player2.getScore();
         if (score1.isAdvantageThan(score2)) {
             return player1.advantage(new AdvantageFormatter());
         }

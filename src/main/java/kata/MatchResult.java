@@ -1,6 +1,6 @@
 package kata;
 
-public class MatchResult implements Result {
+public class MatchResult {
     private final Player player1;
     private final Player player2;
 
@@ -9,13 +9,7 @@ public class MatchResult implements Result {
         this.player2 = player2;
     }
 
-    @Override
-    public boolean canApply() {
-        return !player1.isTieTo(player2) && !player1.isAdvantage() && !player2.isAdvantage();
-    }
-
-    @Override
-    public String execute(Score score1, Score score2) {
-        return score1.result(score2, new MatchResultFormatter());
+    public String execute() {
+        return player1.getScore().result(player2.getScore(), new MatchResultFormatter());
     }
 }

@@ -15,7 +15,7 @@ public class TieResult implements Result {
     }
 
     @Override
-    public String execute(Score score1, Score score2) {
-        return score1.isTie(new TieFormatter());
+    public String execute() {
+        return player1.getScore().isTie(new TieFormatter());
     }
 }
