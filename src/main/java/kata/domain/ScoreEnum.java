@@ -27,7 +27,11 @@ public enum ScoreEnum {
         return "";
     }
 
-    public String getName(){
+    public String getName() {
         return name;
+    }
+
+    public int getValue() {
+        return value;
     }
 }

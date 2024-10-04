@@ -4,6 +4,8 @@ import kata.formatter.Formatter;
 
 import java.util.Objects;
 
+import static kata.domain.ScoreEnum.FORTY;
+
 public class Score {
 
     private int value;
@@ -21,7 +23,7 @@ public class Score {
     }
 
     public boolean isAdvantage() {
-        return value >= 4;
+        return value > FORTY.getValue();
     }
 
     public boolean isAdvantageThan(Score score) {
