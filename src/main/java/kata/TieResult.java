@@ -16,22 +16,6 @@ public class TieResult implements Result {
 
     @Override
     public String execute(Score score1, Score score2) {
-        String score;
-        switch (score1.getValue()) {
-            case 0:
-                score = "Love-All";
-                break;
-            case 1:
-                score = "Fifteen-All";
-                break;
-            case 2:
-                score = "Thirty-All";
-                break;
-            default:
-                score = "Deuce";
-                break;
-
-        }
-        return score;
+        return score1.isTie(new TieFormatter());
     }
 }

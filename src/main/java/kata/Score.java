@@ -22,22 +22,6 @@ public class Score {
         return value >= 4;
     }
 
-    public String formatToString() {
-        if (value == 0) {
-            return "Love";
-        }
-        if (value == 1) {
-            return "Fifteen";
-        }
-        if (value == 2) {
-            return "Thirty";
-        }
-        if (value == 3) {
-            return "Forty";
-        }
-        return "";
-    }
-
     public boolean isAdvantageThan(Score score) {
         return diffThan(score) == 1;
     }
@@ -46,8 +30,13 @@ public class Score {
         return diffThan(score) >= 2;
     }
 
+    public String isTie(Formatter formatter) {
+        String resultName = ScoreEnum.formatToString(value);
+        return formatter.format(resultName);
+    }
+
     public String result(Score other, Formatter formatter) {
-        return formatter.format(formatToString(), other.formatToString());
+        return formatter.format(ScoreEnum.formatToString(value), ScoreEnum.formatToString(other.getValue()));
     }
 
     private int diffThan(Score other) {
