@@ -1,5 +1,10 @@
 package kata;
 
+import kata.domain.Player;
+import kata.domain.Score;
+import kata.formatter.AdvantageFormatter;
+import kata.formatter.WinFormatter;
+
 public class AdvantageResult implements Result {
     private final Player player1;
     private final Player player2;

@@ -1,5 +1,8 @@
 package kata;
 
+import kata.domain.Player;
+import kata.formatter.TieFormatter;
+
 public class TieResult implements Result {
     private final Player player1;
     private final Player player2;

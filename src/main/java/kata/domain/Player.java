@@ -1,4 +1,6 @@
-package kata;
+package kata.domain;
+
+import kata.formatter.Formatter;
 
 import java.util.Objects;
 
@@ -6,9 +8,13 @@ public class Player {
     private final String name;
     private final Score score;
 
-    public Player(String name, Score score) {
+    private Player(String name, Score score) {
         this.name = name;
         this.score = score;
+    }
+
+    public static Player newPlayer(String name) {
+        return new Player(name, new Score(0));
     }
 
     public Score getScore() {

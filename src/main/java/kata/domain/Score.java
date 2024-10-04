@@ -1,4 +1,6 @@
-package kata;
+package kata.domain;
+
+import kata.formatter.Formatter;
 
 import java.util.Objects;
 

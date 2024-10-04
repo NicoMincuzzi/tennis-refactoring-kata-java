@@ -1,5 +1,8 @@
 package kata;
 
+import kata.domain.Player;
+import kata.formatter.MatchResultFormatter;
+
 public class MatchResult {
     private final Player player1;
     private final Player player2;

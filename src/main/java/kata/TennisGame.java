@@ -1,8 +1,11 @@
 package kata;
 
+import kata.domain.Player;
+
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static kata.domain.Player.newPlayer;
 
 public class TennisGame {
 
@@ -12,17 +15,18 @@ public class TennisGame {
     private final MatchResult matchResult;
 
     public TennisGame(String player1Name, String player2Name) {
-        this.player1 = new Player(player1Name, new Score(0));
-        this.player2 = new Player(player2Name, new Score(0));
+        this.player1 = newPlayer(player1Name);
+        this.player2 = newPlayer(player2Name);
         this.matchResult = new MatchResult(this.player1, this.player2);
         this.results = asList(new TieResult(this.player1, this.player2), new AdvantageResult(this.player1, this.player2));
     }
 
     public void wonPoint(String playerName) {
-        if (player1.equals(new Player(playerName, new Score(0))))
+        if (player1.equals(newPlayer(playerName))) {
             player1.winPoint();
-        else
+        } else {
             player2.winPoint();
+        }
     }
 
     public String getScore() {

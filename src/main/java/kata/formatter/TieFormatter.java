@@ -1,6 +1,7 @@
-package kata;
+package kata.formatter;
 
-import static kata.ScoreEnum.FORTY;
+
+import static kata.domain.ScoreEnum.FORTY;
 
 public class TieFormatter implements Formatter {
     @Override

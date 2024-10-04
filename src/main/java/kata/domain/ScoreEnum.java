@@ -1,11 +1,11 @@
-package kata;
+package kata.domain;
 
 
 import java.util.Optional;
 
 import static java.util.Arrays.stream;
 
-enum ScoreEnum {
+public enum ScoreEnum {
     LOVE(0, "Love"),
     FIFTEEN(1, "Fifteen"),
     THIRTY(2, "Thirty"),

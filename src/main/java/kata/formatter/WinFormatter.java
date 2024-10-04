@@ -1,4 +1,4 @@
-package kata;
+package kata.formatter;
 
 public class WinFormatter implements Formatter {
 
