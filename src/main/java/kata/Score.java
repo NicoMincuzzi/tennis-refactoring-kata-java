@@ -26,6 +26,19 @@ public class Score {
         return value - other.getValue();
     }
 
+    public String format() {
+        if (value == 0) {
+            return "Love";
+        } else if (value == 1) {
+            return "Fifteen";
+        } else if (value == 2) {
+            return "Thirty";
+        } else if (value == 3) {
+            return "Forty";
+        }
+        return "";
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

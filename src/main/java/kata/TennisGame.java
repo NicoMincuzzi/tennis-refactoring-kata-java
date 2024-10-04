@@ -27,6 +27,7 @@ public class TennisGame {
         return results.stream()
                 .filter(Result::canApply)
                 .findFirst()
-                .map(it -> it.execute(player1.getScore(), player2.getScore())).get();
+                .map(it -> it.execute(player1.getScore(), player2.getScore()))
+                .get();
     }
 }

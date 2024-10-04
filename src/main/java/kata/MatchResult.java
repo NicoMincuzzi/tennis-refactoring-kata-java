@@ -16,31 +16,6 @@ public class MatchResult implements Result {
 
     @Override
     public String execute(Score score1, Score score2) {
-        String score = "";
-        int tempScore;
-        for (int i = 1; i < 3; i++) {
-            if (i == 1) {
-                tempScore = score1.getValue();
-            } else {
-                score += "-";
-                tempScore = score2.getValue();
-            }
-
-            switch (tempScore) {
-                case 0:
-                    score += "Love";
-                    break;
-                case 1:
-                    score += "Fifteen";
-                    break;
-                case 2:
-                    score += "Thirty";
-                    break;
-                case 3:
-                    score += "Forty";
-                    break;
-            }
-        }
-        return score;
+        return score1.format().concat("-").concat(score2.format());
     }
 }
